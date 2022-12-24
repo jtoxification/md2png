@@ -1,52 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--
-     md2png.html - Converts Discord Markdown to PNG format. Currently automates the fortnightly Progress Tracker change log as an image rather than multiple posts.
+	md2png.html - Converts Discord Markdown to PNG format. Currently automates the fortnightly Progress Tracker change log as an image rather than multiple posts.
 	 
 	This tool was made possible by the Mozilla API reference, w3schools, StackOverflow, ShinyHobo's ShinyTracker
-	and all the crazy geniuses who standardized, designed, and implemented the wonderful browser features below.
+	and all the crazy geniuses who standardized, designed, and implemented the wonderful browser features I gleefully and ignorantly mash together below.
 	
 	----------------------------------------------------------------
-	License Info:
+	License Info
 	----------------------------------------------------------------
-    Copyright (C) 2022 jtoxification aka Just Some Rando for the r/StarCitizen news team and the Star Citizen Community.
+	Copyright (C) 2022 jtoxification aka Just Some Rando for the r/StarCitizen news team and the Star Citizen Community.
 	Use and modify as needed - there really isn't anything special here; it just gets the job done.
 	I can be reached via Discord.
 
 	https://www.gnu.org/licenses/gpl-3.0-standalone.html
 	
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-	
-	----------------------------------------------------------------
-	- Changelog - 
-	----------------------------------------------------------------
-	2022-10-27 - Initial Creation
-	2022-10-30 - Addition and base64 conversion of Progress Tracker-specific emoji
-	2022-11-09 - Added inline edits & drag & drop
-	2022-11-23 - Rewrite w/ automatic multicolumn capabilities, credit blurb, legend
-	2022-11-25 - Added constraints to force column count to collapse to fit when only a handful of items are present in a category
-	2022-12-12 - General bugfixes and license
-	2022-12-23 - Add'l credit blurb
-	
-	----------------------------------------------------------------
-	- To do -
-	----------------------------------------------------------------
-	1. Underline support
-	2. Column count selection
-	3. Emoji profile create/update, with automatic conversion of binary to bin64 stream
-	4. Transparency handling, borders, and background
-	5. SVG support (with hyperlink support)
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <head>
 <link
