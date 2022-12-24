@@ -9,6 +9,7 @@
 <h2>License</h2>
 <pre>
 Copyright (C) 2022 jtoxification aka Just Some Rando for the r/StarCitizen news team and the Star Citizen Community.
+Not affiliated with Cloud Imperium Games
 Use and modify as needed - there really isn't anything special here; it just gets the job done.
 I can be reached via Discord.
 
