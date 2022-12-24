@@ -48,7 +48,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.</pre>
 
 2. Column count selection
 
-3. Emoji profile create/update, with automatic conversion of binary to bin64 stream
+3. Emoji profile create/update/load/save, with automatic conversion of binary to bin64 stream
 
 4. Transparency handling, borders, and background
 
