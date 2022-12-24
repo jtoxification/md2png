@@ -289,8 +289,7 @@ class Painter
 		for(let key of Object.keys(oDefault))
 		{
 			this.ctx[key] = pOverrides[key] ?? oDefault[key]
-			if (pOverrides.fillStyle == Format.BlurbColor)
-				console.log(this.ctx[key])
+			/* if (pOverrides.fillStyle == Format.BlurbColor)console.log(this.ctx[key]) */
 		}
 		pStyle = pStyle.trim()
 		if(pStyle.length)
