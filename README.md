@@ -3,7 +3,7 @@
   Converts Discord Markdown to PNG format (1st draft temporarily hardcoded to specific Progress Tracker emoji)
 </p>
 <p>
- This tool was made possible by the Mozilla API reference, w3schools, StackOverflow, ShinyHobo's ShinyTracker
+ This tool was made possible by the Mozilla API reference, w3schools, StackOverflow, ShinyHobo's ShinyTracker, Cloud Imperium Games,
  and all the crazy geniuses who standardized, designed, and implemented the wonderful browser features that I gleefully and ignorantly knock together.
 </p>
 <h2>License</h2>
