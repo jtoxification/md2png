@@ -30,21 +30,19 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.</pre>
 
 <h2>To Do</h2>
 
-1. Underline support
+1. Column count selection
 
-2. Column count selection
+2. Emoji profile create/update/load/save, with automatic conversion of binary to bin64 stream
 
-3. Emoji profile create/update/load/save, with automatic conversion of binary to bin64 stream
+3. Transparency handling, borders, and background
 
-4. Transparency handling, borders, and background
+4. SVG support (with hyperlink support)
 
-5. SVG support (with hyperlink support)
+5. (??). Proper project structure. Something, something, lint.
 
-6. (??). Proper project structure. Something, something, lint.
+6. Convert to TypeScript
 
-7. Convert to TypeScript
-
-8. Make UI-less variant runnable from command-line
+7. Make UI-less variant runnable from command-line
 
 <h2>Changelog</h2>
 
