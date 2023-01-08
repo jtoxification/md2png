@@ -27,21 +27,6 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.</pre>
-<h2>Changelog</h2>
-
-1. 2022-10-27 - Initial Creation
- 
-2. 2022-10-30 - Addition and base64 conversion of Progress Tracker-specific emoji
-
-3. 2022-11-09 - Added inline edits & drag & drop
-
-4. 2022-11-23 - Rewrite w/ automatic multicolumn capabilities, credit blurb, legend
-
-5. 2022-11-25 - Reduced column count to fit when a small number of items are present
-
-6. 2022-12-12 - General bugfixes and license
-
-7. 2022-12-23 - Add'l credit blurb, git branch creation
 
 <h2>To Do</h2>
 
@@ -60,3 +45,21 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.</pre>
 7. Convert to TypeScript
 
 8. Make UI-less variant runnable from command-line
+
+<h2>Changelog</h2>
+
+1. 2022-10-27 - Initial Creation
+ 
+2. 2022-10-30 - Addition and base64 conversion of Progress Tracker-specific emoji
+
+3. 2022-11-09 - Added inline edits & drag & drop
+
+4. 2022-11-23 - Rewrite w/ automatic multicolumn capabilities, credit blurb, legend
+
+5. 2022-11-25 - Reduced column count to fit when a small number of items are present
+
+6. 2022-12-12 - General bugfixes and license
+
+7. 2022-12-23 - Add'l credit blurb, git branch creation
+
+8. 2023-01-07 - Added initial underline support, cleaned-up image, moved image placement for clarity
