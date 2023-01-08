@@ -62,4 +62,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.</pre>
 
 7. 2022-12-23 - Add'l credit blurb, git branch creation
 
-8. 2023-01-07 - Added initial underline support, cleaned-up image, moved image placement for clarity
+8. 2023-01-07a- Added initial underline support, cleaned-up image, moved image placement for clarity
+
+9. 2023-01-07b- Added Charly as the file icon, & baked the legend & credits blurb into the image programmatically so that they can scale cleanly with the font size (Warning! it does NOT scale with font selection at the moment!)
