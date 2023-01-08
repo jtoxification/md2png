@@ -1,0 +1,145 @@
+**Progress Tracker Update | 18 August 2022**
+<https://robertsspaceindustries.com/roadmap/progress-tracker>
+<https://shinytracker.app/>
+
+**Deliverables Removed**
+:SCN2: Tumbril Ranger [1 Dev] :SC: 
+
+**Deliverables Added**
+:SCN1: Aerodynamic Control Surfaces [1 Dev] :SC: 
+:SCN1: AI - Vehicle Perception [1 Dev] :SC: :SQ: 
+:SCN1: Arena Commander: Classic Race Mode Overhaul [2 Devs] :SC: 
+:SCN1: VOLT Pulse [1 Dev] :SC: :SQ: 
+
+**Deliverables Updated**
+:SCN4: AI - Navigation Links - Ladders/Ledge Grab [End date extended, Work added] :SC: :SQ: 
+:SCN4: AI - Untrained Combat [End date extended, Work added] :SC: :SQ: 
+:SCN4: AI - Usable System V2 [End date extended, Work added] :SC: 
+:SCN4: Animatable Gunner Helmet [End date extended, Work added] :SC: :SQ: 
+:SCN4: Anvil Legionnaire [Work removed] :SC: 
+:SCN4: Argo SRV [End date extended, Work added] :SC: 
+:SCN4: Bounty Hunter V2 [Work added] :SC: 
+:SCN4: Bug Fixing & Tech Debt [Work removed] :SC: :SQ: 
+:SCN4: Chapter 01 [Work added] :SQ: 
+:SCN4: Chapter 04 [Work added] :SQ: 
+:SCN4: Chapter 05 [Work added] :SQ: 
+:SCN4: Chapter 07 [End date extended, Work added] :SQ: 
+:SCN4: Chapter 09 [End date extended, Work added] :SQ: 
+:SCN4: Chapter 12 [Work added] :SQ: 
+:SCN4: Chapter 14 [Work added] :SQ: 
+:SCN4: Chapter 18 [Work added] :SQ: 
+:SCN4: Chapter 26 [Work added] :SQ: 
+:SCN4: Character Creator [End date extended, Work added] :SQ: 
+:SCN4: Character Work [Work added] :SQ: 
+:SCN4: Chemline [End date extended, Work added] :SQ: 
+:SCN4: Derelict Spaceships - Points of Interest [Work added] :SC: 
+:SCN4: Distortion Propagation [Start date retracted, Work added] :SC: :SQ: 
+:SCN4: Docking - Ship to Ship [End date retracted] :SC: :SQ: 
+:SCN4: Drake Corsair [End date extended, Work removed] :SC: 
+:SCN4: Drake Vulture [Work added] :SC: 
+:SCN4: Enemy Characters [Work added] :SQ: 
+:SCN4: Environmental Space Missions [End date extended, Work added] :SC: 
+:SCN4: Jump Points [End date extended, Work added] :SC: :SQ: 
+:SCN4: Ladders T1 [End date extended, Work added] :SC: :SQ: 
+:SCN4: Map and Radar System Rework [End date extended, Work added] :SC: :SQ: 
+:SCN4: MFD Rework [Work added] :SC: :SQ: 
+:SCN4: MISC Hull C [End date extended, Work added] :SC: :SQ: 
+:SCN4: Miscellaneous Support [Work added] :SC: :SQ: 
+:SCN4: mobiGlas Rework [Work added] :SC: :SQ: 
+:SCN4: New Player Experience [Start date corrected, End date retracted, Work removed] :SC: 
+:SCN4: Origin X1 [End date extended, Work added] :SC: 
+:SCN4: Persistent Streaming and Server Meshing [Work added] :SC: 
+:SCN4: Quantum Travel Experience [Work added] :SC: 
+:SCN4: Resource Management [Work added] :SC: 
+:SCN4: RSI Apollo [Start date extended, Work removed] :SC: 
+:SCN4: RSI Lynx [End date extended, Work added] :SC: 
+:SCN4: Salvage - Vehicle Munching [Start date extended, Work removed] :SC: 
+:SCN4: Salvage T0 [End date extended, Work added] :SC: :SQ: 
+:SCN4: Seated Item Handling [Start date extended, Work removed] :SC: :SQ: 
+:SCN4: Ship CPU [End date retracted, Work removed] :SC: :SQ: 
+:SCN4: SQ42 - Vehicle Support [End date extended, Work added] :SQ: 
+:SCN4: Subsumption Editor Integration [End date extended, Work added] :SC: :SQ: 
+:SCN4: Unannounced Vehicle [End date extended, Work removed] :SC: 
+:SCN4: Unannounced Vehicle [End date retracted] :SC: 
+:SCN4: Unannounced Vehicle [End date extended, Work added] :SC: 
+:SCN4: Unannounced Vehicle [Work removed] :SC: 
+:SCN4: VOLT Fresnel [Start date retracted, Work added] :SC: 
+
+**Ongoing Sprints**
+:SCN5: AI - Commuter [1 Active Dev:nochange:] :SQ: 
+:SCN5: AI - Medical [5 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: AI - Navigation Links - Ladders/Ledge Grab [1 Active Dev:increase:] :SC: :SQ: 
+:SCN5: AI - Untrained Combat [2 Active Devs:increase:] :SC: :SQ: 
+:SCN5: AI - Usable System V2 [2 Active Devs:increase:] :SC: 
+:SCN5: AI - Utility [3 Active Devs:increase:] :SQ: 
+:SCN5: AI - Vehicle Perception [1 Active Dev:increase:] :SC: :SQ: 
+:SCN5: AR and Map Marker System Rework [2 Active Devs:decrease:] :SC: :SQ: 
+:SCN5: Arena Commander: Classic Race Mode Overhaul [2 Active Devs:increase:] :SC: 
+:SCN5: Argo SRV [5 Active Devs:increase:] :SC: 
+:SCN5: Asteroid Facilities [1 Active Dev:nochange:] :SC: 
+:SCN5: Banu Merchantman [17 Active Devs:increase:] :SC: 
+:SCN5: Bounty Hunter V2 [4 Active Devs:increase:] :SC: 
+:SCN5: Bug Fixing & Tech Debt [92 Active Devs:increase:] :SC: :SQ: 
+:SCN5: Cargo System Refactor [3 Active Devs:nochange:] :SC: 
+:SCN5: Chapter 01 [20 Active Devs:decrease:] :SQ: 
+:SCN5: Chapter 02 [3 Active Devs:decrease:] :SQ: 
+:SCN5: Chapter 04 [5 Active Devs:decrease:] :SQ: 
+:SCN5: Chapter 05 [8 Active Devs:increase:] :SQ: 
+:SCN5: Chapter 11 [3 Active Devs:decrease:] :SQ: 
+:SCN5: Chapter 12 [13 Active Devs:decrease:] :SQ: 
+:SCN5: Chapter 14 [8 Active Devs:decrease:] :SQ: 
+:SCN5: Chapter 15 [3 Active Devs:nochange:] :SQ: 
+:SCN5: Chapter 18 [1 Active Dev:decrease:] :SQ: 
+:SCN5: Chapter 19 [8 Active Devs:decrease:] :SQ: 
+:SCN5: Chapter 20 [2 Active Devs:decrease:] :SQ: 
+:SCN5: Chapter 23 [3 Active Devs:nochange:] :SQ: 
+:SCN5: Character Creator [1 Active Dev:increase:] :SQ: 
+:SCN5: Character Work [56 Active Devs:increase:] :SQ: 
+:SCN5: Chemline [1 Active Dev:increase:] :SQ: 
+:SCN5: Commodity Kiosk [3 Active Devs:nochange:] :SC: 
+:SCN5: Derelict Spaceships - Points of Interest [7 Active Devs:decrease:] :SC: 
+:SCN5: Drake Corsair [4 Active Devs:increase:] :SC: 
+:SCN5: Drake Vulture [3 Active Devs:nochange:] :SC: 
+:SCN5: Dynamic Events [11 Active Devs:nochange:] :SC: 
+:SCN5: Dynamic Mission System [1 Active Dev:nochange:] :SC: 
+:SCN5: Ecosystem Enhancements [1 Active Dev:increase:] :SC: 
+:SCN5: Enemy Characters [7 Active Devs:increase:] :SQ: 
+:SCN5: Entity Properties Plugin [1 Active Dev:increase:] :SC: :SQ: 
+:SCN5: EVA T2 [2 Active Devs:decrease:] :SC: :SQ: 
+:SCN5: Fire Hazard [7 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: Fire Rats Armor [1 Active Dev:nochange:] :SC: 
+:SCN5: FPS Devices T1 [2 Active Devs:decrease:] :SC: :SQ: 
+:SCN5: Frontier Clothing [17 Active Devs:nochange:] :SC: 
+:SCN5: FS-Tech-Anim - Asset Integration [7 Active Devs:increase:] :SC: :SQ: 
+:SCN5: Gen12 - Renderer T1 [10 Active Devs:increase:] :SC: :SQ: 
+:SCN5: Map and Radar System Rework [9 Active Devs:increase:] :SC: :SQ: 
+:SCN5: MFD Rework [3 Active Devs:increase:] :SC: :SQ: 
+:SCN5: Miscellaneous Support [25 Active Devs:decrease:] :SC: :SQ: 
+:SCN5: mobiGlas Rework [2 Active Devs:increase:] :SC: :SQ: 
+:SCN5: New Interdiction Scenarios [1 Active Dev:nochange:] :SC: 
+:SCN5: New Missions - Orison [2 Active Devs:decrease:] :SC: 
+:SCN5: New Player Experience [5 Active Devs:increase:] :SC: 
+:SCN5: Ocean Shader Improvements [1 Active Dev:increase:] :SC: 
+:SCN5: Outpost Homestead - Independent & Outlaw [17 Active Devs:nochange:] :SC: 
+:SCN5: Persistent Hangars [3 Active Devs:increase:] :SC: 
+:SCN5: Persistent Streaming and Server Meshing [6 Active Devs:decrease:] :SC: 
+:SCN5: Physical Damage & Breakability [3 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: Physics - Ropes Simulation [1 Active Dev:nochange:] :SC: :SQ: 
+:SCN5: Pyro System, Planet, and Mission Setup [4 Active Devs:increase:] :SC: 
+:SCN5: RaStar [2 Active Devs:increase:] :SC: 
+:SCN5: Rescue/Transport Mission [3 Active Devs:decrease:] :SC: 
+:SCN5: Salvage T0 [11 Active Devs:decrease:] :SC: :SQ: 
+:SCN5: Sandbox Prison Activities [4 Active Devs:nochange:] :SC: 
+:SCN5: Security Post Kareah Reactivation [3 Active Devs:increase:] :SC: 
+:SCN5: Ship CPU [2 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: StarWords Improvements [2 Active Devs:increase:] :SC: :SQ: 
+:SCN5: Subsumption Editor Integration [1 Active Dev:increase:] :SC: :SQ: 
+:SCN5: Unannounced Vehicle [7 Active Devs:increase:] :SC: 
+:SCN5: Unannounced Vehicle [4 Active Devs:increase:] :SC: 
+:SCN5: Unannounced Vehicle [1 Active Dev:nochange:] :SC: 
+:SCN5: Unannounced Vehicle [1 Active Dev:increase:] :SC: 
+:SCN5: Unannounced Vehicle [2 Active Devs:nochange:] :SC: 
+:SCN5: Underground Facilities [1 Active Dev:increase:] :SC: 
+:SCN5: Unified Itemports - FPS [5 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: XenoThreat Armor [4 Active Devs:nochange:] :SC: 
+:SCN5: Zero G Push & Pull [1 Active Dev:decrease:] :SC: :SQ: 

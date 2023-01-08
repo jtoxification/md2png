@@ -1,0 +1,119 @@
+**Оновлення Трекера Прогресу | 23 November 2022**
+<https://robertsspaceindustries.com/roadmap/progress-tracker>
+<https://shinytracker.app/>
+
+**Видалені задачі**
+:SCN2: Неанонсований Транспорт [16 Devs] :SC: 
+:SCN2: Неанонсований Транспорт [12 Devs] :SC: 
+
+**Додані задачі**
+:SCN1: Anvil C8R Pisces [12 Devs] :SC: 
+:SCN1: Drake Cutter [16 Devs] :SC: 
+
+**Оновлені задачі**
+:SCN4: Розділ 01 [Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 04 [Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 05 [Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 07 [Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 08 [Дедлайн Відкладено, Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 09 [Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 10 [Дедлайн Відкладено, Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 11 [Дедлайн Відкладено, Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 12 [Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 14 [Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 15 [Кл. завдань зросла] :SQ: 
+:SCN4: Chapter 16 [Дедлайн Відкладено, Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 17 [Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 18 [Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 19 [Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 20 [Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 22 [Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 23 [Кл. завдань зросла] :SQ: 
+:SCN4: Chapter 24 [Дедлайн Відкладено, Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 25 [Кл. завдань зросла] :SQ: 
+:SCN4: Розділ 26 [Дедлайн Відкладено, Кл. завдань зросла] :SQ: 
+:SCN4: Chapter 27 [Кл. завдань зросла] :SQ: 
+
+**Поточні Спринти**
+:SCN5: Станція Aciedo [4 Active Devs:nochange:] :SQ: 
+:SCN5: Аеродинамічні Керуючі Елементи [1 Active Dev:nochange:] :SC: 
+:SCN5: ШІ - Бій Без Тренування [2 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: ШІ - Сприйняття Транспорту [2 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: Anvil C8R Pisces [1 Active Dev:increase:] :SC: 
+:SCN5: Переробка Системи AR та Картографічних Маркерів [2 Active Devs:increase:] :SC: :SQ: 
+:SCN5: Архон [15 Active Devs:increase:] :SQ: 
+:SCN5: Arena Commander: Classic Race Mode Overhaul [2 Active Devs:nochange:] :SC: 
+:SCN5: Argo SRV [4 Active Devs:nochange:] :SC: 
+:SCN5: Banu Merchantman [10 Active Devs:nochange:] :SC: 
+:SCN5: Бомби [2 Active Devs:increase:] :SC: 
+:SCN5: Мисливець За Головами V2 [7 Active Devs:decrease:] :SC: 
+:SCN5: Усунення Багів та Технічного Боргу [115 Active Devs:increase:] :SC: :SQ: 
+:SCN5: Інтер'єри Будівель [25 Active Devs:nochange:] :SC: 
+:SCN5: Розділ 01 [36 Active Devs:increase:] :SQ: 
+:SCN5: Розділ 02 [4 Active Devs:nochange:] :SQ: 
+:SCN5: Розділ 03 [1 Active Dev:increase:] :SQ: 
+:SCN5: Розділ 04 [10 Active Devs:increase:] :SQ: 
+:SCN5: Розділ 05 [23 Active Devs:increase:] :SQ: 
+:SCN5: Розділ 06 [3 Active Devs:decrease:] :SQ: 
+:SCN5: Розділ 07 [9 Active Devs:increase:] :SQ: 
+:SCN5: Розділ 08 [3 Active Devs:increase:] :SQ: 
+:SCN5: Розділ 09 [8 Active Devs:decrease:] :SQ: 
+:SCN5: Розділ 10 [1 Active Dev:increase:] :SQ: 
+:SCN5: Розділ 11 [12 Active Devs:increase:] :SQ: 
+:SCN5: Розділ 12 [8 Active Devs:increase:] :SQ: 
+:SCN5: Розділ 14 [21 Active Devs:increase:] :SQ: 
+:SCN5: Розділ 15 [11 Active Devs:increase:] :SQ: 
+:SCN5: Chapter 16 [6 Active Devs:increase:] :SQ: 
+:SCN5: Розділ 17 [6 Active Devs:nochange:] :SQ: 
+:SCN5: Розділ 18 [11 Active Devs:increase:] :SQ: 
+:SCN5: Розділ 19 [20 Active Devs:increase:] :SQ: 
+:SCN5: Розділ 20 [16 Active Devs:increase:] :SQ: 
+:SCN5: Розділ 21 [6 Active Devs:increase:] :SQ: 
+:SCN5: Розділ 22 [22 Active Devs:increase:] :SQ: 
+:SCN5: Розділ 23 [16 Active Devs:increase:] :SQ: 
+:SCN5: Розділ 25 [5 Active Devs:increase:] :SQ: 
+:SCN5: Розділ 26 [21 Active Devs:increase:] :SQ: 
+:SCN5: Chapter 27 [5 Active Devs:increase:] :SQ: 
+:SCN5: Робота Над Персонажами [41 Active Devs:decrease:] :SQ: 
+:SCN5: Зарядка / Розрядка T0 [2 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: Crusader Spirit [6 Active Devs:nochange:] :SC: 
+:SCN5: Різання T2 [1 Active Dev:nochange:] :SC: :SQ: 
+:SCN5: Покинуті Кораблі - Точки Інтересу [16 Active Devs:nochange:] :SC: 
+:SCN5: Динамічні Події [4 Active Devs:decrease:] :SC: 
+:SCN5: Плагін Властивостей Сутності [1 Active Dev:increase:] :SC: :SQ: 
+:SCN5: Вихід у Відкритий Космос T2 [2 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: Freight Elevators [1 Active Dev:decrease:] :SC: 
+:SCN5: Одежа в Стилі Фронтиру [20 Active Devs:nochange:] :SC: 
+:SCN5: Gen12 - Renderer T1 [11 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: Інструмент HEX [5 Active Devs:nochange:] :SC: 
+:SCN5: Драбини Т1 [3 Active Devs:increase:] :SC: :SQ: 
+:SCN5: Міський Краєвид Лорвіля [5 Active Devs:nochange:] :SC: 
+:SCN5: Переробка Системи Карти та Радіолокації [7 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: Переробка Багатофункціональних Дисплеїв Корабля (MFD) [8 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: MISC Hull C [2 Active Devs:decrease:] :SC: :SQ: 
+:SCN5: Різна Підтримка [57 Active Devs:increase:] :SC: :SQ: 
+:SCN5: New Missions - Orison [1 Active Dev:decrease:] :SC: 
+:SCN5: Покращення Шейдерів Океану [5 Active Devs:decrease:] :SC: 
+:SCN5: Outpost Homestead - Незалежні та Поза Законом [13 Active Devs:nochange:] :SC: 
+:SCN5: Persistent Streaming та Server Meshing [35 Active Devs:nochange:] :SC: 
+:SCN5: Фізичні Ушкодження та Зламність [3 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: Фізика - Симуляція Канатів [1 Active Dev:nochange:] :SC: :SQ: 
+:SCN5: Враження Взаємодії Гравців T2 - HUD Візора та Шолому [3 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: Player/Machine Physical Interaction [2 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: Пересування Лежачи Т1 [2 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: Система Pyro, планети і настройка місій [4 Active Devs:decrease:] :SC: 
+:SCN5: Quantum Simulation [5 Active Devs:nochange:] :SC: 
+:SCN5: Досвід Квантових Подорожей [5 Active Devs:decrease:] :SC: 
+:SCN5: RaStar [1 Active Dev:decrease:] :SC: 
+:SCN5: Управління Ресурсами [12 Active Devs:decrease:] :SC: 
+:SCN5: RSI Lynx [4 Active Devs:nochange:] :SC: 
+:SCN5: Супутники - Точки Інтересу [2 Active Devs:nochange:] :SC: 
+:SCN5: ЦП корабля [1 Active Dev:nochange:] :SC: :SQ: 
+:SCN5: SQ42 - Підтримка Транспорту [28 Active Devs:decrease:] :SQ: 
+:SCN5: Модний одяг в Stanton [1 Active Dev:increase:] :SC: 
+:SCN5: Покращення StarWords [2 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: Інтеграція редактора Subsumption [1 Active Dev:nochange:] :SC: :SQ: 
+:SCN5: Перегони На Час [1 Active Dev:nochange:] :SC: 
+:SCN5: Неанонсований Транспорт [2 Active Devs:decrease:] :SC: 
+:SCN5: Unified Itemports - FPS [5 Active Devs:nochange:] :SC: :SQ: 
+:SCN5: Тяни-Штовхай в Невагомості [1 Active Dev:nochange:] :SC: :SQ: 
