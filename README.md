@@ -32,7 +32,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.</pre>
 
 1. Column count selection
 
-2. Emoji profile create/update/load/save, with automatic conversion of binary to bin64 stream
+2. Emoji profile create/update/load/save (this regrettably requires an images folder instead of baking the images into the page)
 
 3. Transparency handling, borders, and background
 
@@ -65,3 +65,5 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.</pre>
 9. 2023-01-07b- Added Charly as the file icon, & baked the legend & credits blurb into the image programmatically so that they can scale cleanly with the font size (Warning! it does NOT scale with font selection at the moment!)
 
 10. 2023-01-07c- Added some basic test cases. Keep in mind, the conversion part of this tool only really works for the Progress Tracker at this time, but I'm almost done creating a true generic mode.
+
+11. 2023-01-09 - Fixed a lot of jenkiness in how the new legend is printed, and resolved some longstanding bugs. There's still a lot to fix.
