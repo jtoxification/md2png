@@ -1,10 +1,10 @@
 <h1>md2png</h1>
 <p>
-  Converts Discord Markdown to PNG format (1st draft temporarily hardcoded to specific Progress Tracker emoji)
+  Converts Discord Markdown to PNG format (1st draft temporarily hardcoded to specific Progress Tracker emoji; generic version forthcoming)
 </p>
 <p>
- This tool was made possible by the Mozilla API reference, w3schools, StackOverflow, ShinyHobo's ShinyTracker, Cloud Imperium Games,
- and all the crazy geniuses who standardized, designed, and implemented the wonderful browser features that I gleefully and ignorantly knock together.
+ Made possible by the Mozilla API reference, w3schools, StackOverflow, ShinyHobo, Cloud Imperium Games, and the crazy geniuses 
+ who designed the wonderful browser features I gleefully mash together.
 </p>
 <h2>License</h2>
 <pre>
@@ -66,4 +66,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.</pre>
 
 10. 2023-01-07c- Added some basic test cases. Keep in mind, the conversion part of this tool only really works for the Progress Tracker at this time, but I'm almost done creating a true generic mode.
 
-11. 2023-01-09 - Fixed a lot of jenkiness in how the new legend is printed, and resolved some longstanding bugs. There's still a lot to fix.
+11. 2023-01-09a - Fixed a lot of jenkiness in how the new legend is printed, and resolved some longstanding bugs. There's still a lot to fix.
+
+12. 2023-01-09b - Removed some dead code, aligned input & output.

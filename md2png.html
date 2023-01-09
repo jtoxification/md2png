@@ -4,8 +4,8 @@
 	md2png.html - Converts Discord Markdown to PNG format. Currently automates the fortnightly Progress Tracker change log as an image rather than multiple posts.
 	(Generic version forthcoming)
 	 
-	This tool was made possible by the Mozilla API reference, w3schools, StackOverflow, ShinyHobo's ShinyTracker, Cloud Imperium Games,
-	and all the crazy geniuses who standardized, designed, and implemented the wonderful browser features I gleefully and ignorantly mash together below.
+	Made possible by the Mozilla API reference, w3schools, StackOverflow, ShinyHobo, Cloud Imperium Games, and the crazy geniuses 
+	who designed the wonderful browser features I gleefully mash together.
 	
 	----------------------------------------------------------------
 	License Info
@@ -461,7 +461,6 @@ class Painter
 		let ptBlurb = {x:0,y:0}
 		let iBorderMargin = Format.ColumnMargin * 3
 		let iMaxBlurbWidth = 0.75 * this.measureEOL(Format.arImgGenBlurb.reduce((a,b)=>a.length>b.length?a:b,''), iBorderMargin, oBlurbOverride) 
-		this.resetFormatting()
 		
 		// Create metrics for our legend & canvas
 		// I know this is super kludgy. I'll be rewriting it in a bit.
@@ -546,7 +545,6 @@ function LoadText()
 	{
 		console.log(`Error occurred within try-catch block:`, e)
 		document.querySelector(`#CreditBlurbHeader`).innerHTML = "<b>Disclaimer</b><br>The converter currently only supports heading mode.<br>As such, it expects at least two lines, or any title on its own line surrounded by <br> **double asterisks** to be followed by at least one line of additional text.<br>This limitation will eventually be removed.";
-		const canvas = document.querySelector(`#canvas`)
 	}
 	document.querySelector(`button#button_Reload`).style.display = ``
 }
@@ -643,9 +641,9 @@ function AttachEventListeners()
 	</div>
   <table><tbody><tr><td>
 	<h1 style="padding:0px;margin:0px;">md2png - Progress Tracker Image Generator</h1>
-	<p class="Spacer-Left" style="margin-bottom:1.2em;font-size:larger;">
+	<p class="Spacer-Left" style="margin-bottom:1.35em;margin-top:1.35em;font-size:larger;">
 		<!-- Be cool or gtfo !-->
-		<a href="https://old.reddit.com/r/starcitizen/">r/StarCitizen</a> - Made by the Community 🤘🤟🖖🏳️‍🌈🏳️‍⚧️
+		<a href="https://old.reddit.com/r/starcitizen/">r/StarCitizen</a> - Made by the Community 🖖🏳️‍🌈🏳️‍⚧️
 	</p>
 	<form class="Spacer-Left">
 		<label class="Spacer-Left Spacer-Top" for="select_Font" style="font-size:16pt;">Select a Font Family: </label>
@@ -741,7 +739,7 @@ function AttachEventListeners()
 	</form>
   </td><td>
 	<a id="SaveAs" style="display:hidden;"></a>
-	<p class="Spacer" id="CreditBlurbHeader" style="font-size:larger;"></p>
+	<p class="Spacer" id="CreditBlurbHeader" style="font-size:larger;margin-top:0px;padding-top:0px;"></p>
 	<p class="Spacer" id="CreditBlurbForMsgBody"></p>
 	<!--<span id="SaveAsMsg" style="display:none;font-size:x-large;">Right-click the image generated below and select "Save Image As..."</span><br>-->
 	<canvas id="canvas" style="width:800px;" width="1500" height="3000"></canvas>
