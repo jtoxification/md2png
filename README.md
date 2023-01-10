@@ -1,18 +1,23 @@
 <h1>md2png</h1>
 <p>
   Converts basic Discord Markdown to PNG format<br>
-  Currently automates message formatting of ShinyHobo's diff log of Cloud Imperium Games' fortnightly Progress Tracker updates as an image rather than multiple posts.
+  Currently automates message formatting of ShinyHobo's diff log of Cloud Imperium Games' fortnightly<br>
+  Progress Tracker updates as an image rather than multiple posts.<br>
   (Generic version forthcoming)
 </p>
 <p>
- Made possible by the Mozilla API reference, w3schools, StackOverflow, ShinyHobo, Cloud Imperium Games, and the crazy geniuses 
- who designed the wonderful browser features I gleefully mash together.
+ Made possible by the Mozilla API reference, w3schools, StackOverflow, ShinyHobo, Cloud Imperium Games,<br>
+ and the crazy geniuses who designed the wonderful browser features I gleefully mash together.
 </p>
 <h2>License</h2>
 <pre>
 Copyright (C) 2022 jtoxification aka Just Some Rando for the r/StarCitizen news team and the Star Citizen Community.
-Not affiliated with Cloud Imperium Games
+Rights to use Charly the Cat's image reserved by Charly's owner Syntexx.
+Not affiliated with Cloud Imperium Games.
+
 Use and modify as needed - there really isn't anything special here; it just gets the job done.
+(However do ask Syntexx for permission to use their cat's image/likeness).
+
 I can be reached via Discord.
 
 https://www.gnu.org/licenses/gpl-3.0-standalone.html
