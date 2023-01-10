@@ -1,6 +1,8 @@
 <h1>md2png</h1>
 <p>
-  Converts Discord Markdown to PNG format (1st draft temporarily hardcoded to specific Progress Tracker emoji; generic version forthcoming)
+  Converts basic Discord Markdown to PNG format<br>
+  Currently automates message formatting of ShinyHobo's diff log of Cloud Imperium Games' fortnightly Progress Tracker updates as an image rather than multiple posts.
+  (Generic version forthcoming)
 </p>
 <p>
  Made possible by the Mozilla API reference, w3schools, StackOverflow, ShinyHobo, Cloud Imperium Games, and the crazy geniuses 
@@ -62,10 +64,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.</pre>
 
 8. 2023-01-07a- Added initial underline support, cleaned-up image, moved image placement for clarity
 
-9. 2023-01-07b- Added Charly as the file icon, & baked the legend & credits blurb into the image programmatically so that they can scale cleanly with the font size (Warning! it does NOT scale with font selection at the moment!)
+9. 2023-01-07b- Added Charly as the file icon, & baked the legend & credits blurb into the image programmatically so that they can scale cleanly with the font size.
 
 10. 2023-01-07c- Added some basic test cases. Keep in mind, the conversion part of this tool only really works for the Progress Tracker at this time, but I'm almost done creating a true generic mode.
 
-11. 2023-01-09a - Fixed a lot of jenkiness in how the new legend is printed, and resolved some longstanding bugs. There's still a lot to fix.
+11. 2023-01-09a - Fixed a lot of jankiness in how the new legend is printed, and resolved some longstanding bugs. There's still a lot to fix.
 
 12. 2023-01-09b - Removed some dead code, aligned input & output.
+
+13. 2023-01-09c - Fixed more jank, added inline image expansion.
