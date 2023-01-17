@@ -77,4 +77,4 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.</pre>
 
 13. 2023-01-09c - Fixed more jank, added inline image expansion.
 
-14. 2023-01-16 - Added mesage mode, column count, credit & legend customization, re-aligned controls. 
+14. 2023-01-16 - Added message mode, column count, credit & legend customization, re-aligned controls. 
