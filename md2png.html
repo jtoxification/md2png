@@ -78,7 +78,7 @@
 	--input-columns: calc(5.3em + var(--input-preset));
 	--input-offset: calc(10.75em + var(--input-preset));
 */	
-	--input-font: calc(0.4em + var(--input-preset));
+	--input-font: calc(5.55em + var(--input-preset));
 	--input-font-height: calc( 7.7em + var(--input-preset));
 	--input-line-height: var(--input-font-height);
 	--input-mode: calc(10em + var(--input-preset));
@@ -591,7 +591,8 @@ class Painter
 			Format.Columns = iColumns
 			iCanvasWidth = Math.max((iBorderMargin * 3) + iSectionWidth + iBlurbOffset, iCanvasWidth)
 			Column.arWidths[0] = iMaxWidth
-			iCanvasHeight = keySection.y + keySection.h + Format.ColumnMargin
+			//iCanvasHeight = keySection.y + keySection.h + Format.ColumnMargin
+			iCanvasHeight = keySection.y + Format.ColumnMargin + Format.LineHeight * arLegend.length
 			iStartingCreditOffset = iCanvasWidth - 1.5 * iBorderMargin
 		}
 		// Create the report
@@ -650,6 +651,15 @@ function DragDrop(event)
 {
 	LoadFile(event?.dataTransfer?.files?.[0])
 }
+
+function DeleteBRs(content)
+{
+	//for(let br of content.querySelectorAll('div + br'))br.remove()
+	//for(let br of content.querySelectorAll('br:last-child:not(:first-child)'))br.remove()
+	//for(let div of content.querySelectorAll('br + div'))if (div.previousSibling?.nodeName == 'BR')div.previousSibling.remove()
+	//for(let div of content.querySelectorAll('div'))	{if (div.innerHTML == '<br>')div.firstChild.remove()}
+}
+
 function LoadText()
 {
 	// Stop us from navigating away
@@ -657,7 +667,7 @@ function LoadText()
 	event.preventDefault()
 	const content = document.querySelector('#textarea')
 	if (!content.innerText.trim().length)
-		content.innerText = "**Disclaimer**\nThe converter currently only supports heading mode.\nAs such, it expects at least two lines, or any title on its own line surrounded by\n\\*\\*double asterisks\\*\\* to be followed by at least one line of additional text.\nThis limitation will eventually be removed.";
+		content.innerText = "**No Text**\nPlease provide input.                                       ";
 	let ar = content.innerText.split(/\n/)
 
 	// Using single quotes here because NotePad++'s default grammar parser had a fit with all the newstyle quotes I was using.
@@ -691,7 +701,7 @@ function LoadText()
 	{
 		canvas.removeAttribute('loaded')
 		console.log('Error occurred within try-catch block:', e)
-		document.querySelector('#CreditBlurbHeader').innerHTML = "<b>Disclaimer</b><br>The converter currently only supports heading mode.<br>As such, it expects at least two lines, or any title on its own line surrounded by <br> **double asterisks** to be followed by at least one line of additional text.<br>This limitation will eventually be removed.";
+		document.querySelector('#CreditBlurbHeader').innerHTML = "<b>No Text</b><br>Please provide input.";
 	}
 	document.querySelector('#button_Reload').style.display = ''
 }
@@ -812,8 +822,9 @@ function AttachEventListeners()
 	fnSetColumnCount({target:inCol})
 	fnToggleFootnote()
 	CheckHeights()
-	dvCr.classList[inCr.checked?'remove':'add']('toggle')
-	spOff.classList[inCr.checked?'remove':'add']('toggle')
+	let sAction = inCr.checked?'remove':'add'
+	dvCr.classList[sAction]('toggle')
+	spOff.classList[sAction]('toggle')
 	dvLg.classList[inLg.checked?'remove':'add']('toggle')
 }
 </script>
@@ -840,7 +851,7 @@ function AttachEventListeners()
 			<a href="https://old.reddit.com/r/starcitizen/">r/StarCitizen</a> - Made by the Community 🖖🏳️‍🌈🏳️‍⚧️
 		</p>
 		<form class="Spacer-Left">
-			<label class="Spacer-Left Spacer-Top" for="select_Font" style="font-size:16pt;">Select a Font Family </label>
+			<label class="Spacer-Left Spacer-Top" for="select_Font" style="font-size:16pt;">Select Font</label>
 			<select class="Spacer-Top" id="select_Font" value="Arial" style="font-size:12pt;position:relative;left:var(--input-font);">
 				<!-- 
 					Font list taken from stack overflow question https://stackoverflow.com/questions/3368837/list-every-font-a-users-browser-can-display 
@@ -936,12 +947,14 @@ function AttachEventListeners()
 			<span style="vertical-align:super"> %</span>
 			</span>
 			</div>
+			<!-- this should be a <pre></pre> - it'll have issues, so I need to fix it (will just redo the legend & credit section later) -->
 			<div id="textarea_Credit" class="Spacer-Left DiscordTextDarker DiscordDarker Editable-Small" contenteditable="true">Created by the r/StarCitizen Discord News Team
 Assisted by ShinyHobo @ https://shinytracker.app/
 md2png converter maintained by jtoxification
 not affiliated with Cloud Imperium Games</div><br/>
 			<input id="input_Legend" class="Spacer-Left Spacer-Top" type="checkbox" checked="checked">
 			<label for="input_Legend" style="font-size:16pt;vertical-align:super;">Legend</label><br/>
+			<!-- this should be a <pre></pre> - it'll have issues, so I need to fix it (will just redo the legend & credit section later) -->
 			<div id="textarea_Legend" class="Spacer-Left DiscordTextDarker DiscordDarker Editable-Small" contenteditable="true">**Key**
 :scn1: - Added Deliverable
 :scn2: - Removed Deliverable
@@ -969,7 +982,7 @@ not affiliated with Cloud Imperium Games</div><br/>
 			<button id="button_LoadText" class="Spacer-Left">Use Input Box</button>
 			<button id="button_Reload" class="Spacer-Left">Reload File</button>
 			</span>
-			<div id="textarea" class="Spacer DiscordTextDarker DiscordDarker Editable" contenteditable="true"></div>
+			<pre id="textarea" class="Spacer DiscordTextDarker DiscordDarker Editable" contenteditable="true"></pre>
 			<div style="width:100%;text-align:right;"><button id="button_Save" class="Spacer" style="position:relative;right:0.7em">Save Changes</button></div>
 		</form>
 	</div>
