@@ -1,8 +1,6 @@
 <h1>md2png</h1>
 <p>
-  Converts basic Discord Markdown to PNG format<br>
-  Currently automates message formatting of ShinyHobo's diff log of Cloud Imperium Games' fortnightly<br>
-  Progress Tracker updates as an image rather than multiple posts.<br>
+  Converts basic Discord Markdown to PNG format.  Currently automates message formatting of ShinyHobo's diff log of Cloud Imperium Games' fortnightly Progress Tracker updates as an image rather than multiple posts.<br>
   (Generic version forthcoming)
 </p>
 <p>
@@ -37,7 +35,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.</pre>
 
 <h2>To Do</h2>
 
-1. Column count selection
+1. Limit max width of the legend, and center it on wide output
 
 2. Emoji profile create/update/load/save (this regrettably requires an images folder instead of baking the images into the page)
 
@@ -78,3 +76,5 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.</pre>
 12. 2023-01-09b - Removed some dead code, aligned input & output.
 
 13. 2023-01-09c - Fixed more jank, added inline image expansion.
+
+14. 2023-01-16 - Added mesage mode, column count, credit & legend customization, re-aligned controls. 

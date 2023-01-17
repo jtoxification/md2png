@@ -7,7 +7,7 @@
 		(Generic version forthcoming)
 	 
 	Made possible by the Mozilla API reference, w3schools, StackOverflow, ShinyHobo, Cloud Imperium Games, 
-	and the crazy geniuses 	who designed the wonderful browser features I gleefully mash together.
+	and the crazy geniuses who designed the wonderful browser features I gleefully mash together.
 	
 	----------------------------------------------------------------
 	License Info
@@ -63,20 +63,46 @@
 	--titlebar-color:#ebfaf9;
 	--default-margin:0.7em;
 	--image-size:1.25em;
-	--default-lineheight:1.25em;
-	--DiscordBG:#36393f;
-	--DiscordText:#fff;
-	--DiscordTextDarker:#ddd;
-	--DiscordDarker:#2f3136;
-	--DiscordDarkest:#1e2124;
+	--default-lineheight: 1.25em;
+	--DiscordBG: #36393f;
+	--DiscordText: #fff;
+	--DiscordTextDarker: #ddd;
+	--DiscordDarker: #2f3136;
+	--DiscordDarkest: #1e2124;
+	--input-preset: 18.25em;
+/*
+	--input-font: calc(1.625em + var(--input-preset));
+	--input-font-height: calc( -0.2em + var(--input-preset));
+	--input-line-height: var(--input-font-height);
+	--input-mode: calc(4.775em + var(--input-preset));
+	--input-columns: calc(5.3em + var(--input-preset));
+	--input-offset: calc(10.75em + var(--input-preset));
+*/	
+	--input-font: calc(0.4em + var(--input-preset));
+	--input-font-height: calc( 7.7em + var(--input-preset));
+	--input-line-height: var(--input-font-height);
+	--input-mode: calc(10em + var(--input-preset));
+	--input-columns: calc(13em + var(--input-preset));
+	--input-offset: calc(18.5em + var(--input-preset));
 }
 *{border-radius:var(--default-border-radius);}
+
 a:visited{color: #7777FF;}
 a:hover{color:grey;}
+
+abbr { text-decoration:none; }
+
+#BtnExport:hover {background-color:#36393f;}
+button {font-size:larger;}
+
 canvas
 {
-	cursor:pointer;
 	position:absolute;
+}
+canvas[loaded]
+{
+	cursor:pointer;
+	title:"Click to expand";
 }
 canvas.expanded
 {
@@ -92,6 +118,52 @@ canvas:not(.expanded)
 	width:800px;
 	transition: all 1s;
 }
+
+.Cell{display:table-cell !important;}
+
+.DiscordBG,form{background-color:var(--DiscordBG);}
+.DiscordText,body{color:var(--DiscordText);}
+.DiscordTextDarker{color:var(--DiscordTextDarker);}
+.DiscordDarker{background-color:var(--DiscordDarker);}
+.DiscordDarkest,body{background-color:var(--DiscordDarkest);}
+
+.Editable, .Editable-Small
+{
+	font-family: consolas, monospace;
+	white-space:pre;
+	word-wrap:normal;
+	height:13.5em;
+	width:43em;
+	padding-top:0.5em;
+	padding-left:0.5em;
+	padding-bottom:0.5em;
+	margin-bottom:0px;
+	overflow-x:scroll;
+	overflow-y:scroll;
+}
+
+.Editable-Small
+{
+	height:7em;
+}
+
+.Error{color:rgb(255, 152, 152);}
+
+form{width:45em;}
+
+input[type=checkbox]
+{
+	margin-left:calc(1.3 * var(--default-margin));
+	height:2em;
+	width:2em;
+}
+
+input[type=number]
+{
+	text-align:right;
+	width:3em;
+}
+
 #Message
 {
 	position:absolute;
@@ -101,29 +173,11 @@ canvas:not(.expanded)
 	height:7em;
 }
 
-.DiscordBG,form{background-color:var(--DiscordBG);}
-.DiscordText,body{color:var(--DiscordText);}
-.DiscordTextDarker{color:var(--DiscordTextDarker);}
-.DiscordDarker{background-color:var(--DiscordDarker);}
-.DiscordDarkest,body{background-color:var(--DiscordDarkest);}
-.Cell{display:table-cell !important;}
-.Error{color:rgb(255, 152, 152);}
-form
-{
-	width:45em;
-}
-.Editable
-{
-	font-family: consolas, monospace;
-	white-space:pre;
-	word-wrap:normal;
-	height:20em;
-	width:43.5em;
-	padding-bottom:0px;
-	margin-bottom:0px;
-	overflow-x:scroll;
-	overflow-y:scroll;
-}
+.Pad{padding:var(--default-margin);}
+.Pad-Left{padding-left:var(--default-margin);}
+.Pad-Right{padding-right:var(--default-margin);}
+.Pad-Top{padding-top:var(--default-margin);}
+.Pad-Bottom{padding-bottom:var(--default-margin);}
 
 .Spacer{margin:var(--default-margin);}
 .Spacer-Left{margin-left:var(--default-margin);}
@@ -131,14 +185,7 @@ form
 .Spacer-Top{margin-top:var(--default-margin);}
 .Spacer-Bottom{margin-bottom:var(--default-margin);}
 
-.Pad{padding:var(--default-margin);}
-.Pad-Left{padding-left:var(--default-margin);}
-.Pad-Right{padding-right:var(--default-margin);}
-.Pad-Top{padding-top:var(--default-margin);}
-.Pad-Bottom{padding-bottom:var(--default-margin);}
-
-#BtnExport:hover {background-color:#36393f;}
-button {font-size:larger;}
+.toggle { display:none !important; }
 </style>
 <script>
 
@@ -148,54 +195,53 @@ class Format
 	static Columns = 2
 	static MinRowsPerSection = 3
 	static MinItemsForMultiColumn = 5
-	static DiscordBG = `#36393f`
-	static DiscordText = `#fff`
-	static DiscordTextDarker = `#ddd`
-	static DiscordDarker = `#2f3136`
-	static DiscordDarkest = `#1e2124`
-	static Font =`Helvetica`
+	static DiscordBG = '#36393f'
+	static DiscordText = '#fff'
+	static DiscordTextDarker = '#ddd'
+	static DiscordDarker = '#2f3136'
+	static DiscordDarkest = '#1e2124'
+	static Font ='Helvetica'
 	static ColumnMargin = 8
 	static FontSize = 17
 	static LineHeight = 25
-	static get ImagePadding() 	{ return Format.FontSize/7 	}
-	static get LineWidth()      { return Math.max(1, Math.floor(Format.FontSize/10)) }
-	static GetFontString = function(pSize=Format.FontSize, pFont=Format.Font)	{ return `${pSize}px ${pFont}` }
-	static get FontSetting()    { return Format.GetFontString() }
-	static DefaultProperties = function()
+
+	static GetFontString(pSize=Format.FontSize, pFont=Format.Font){ return `${pSize}px ${pFont}` }
+
+	static get FontSetting() { return Format.GetFontString() }
+	static get LineWidth()   { return Math.max(1, Math.floor(Format.FontSize/10)) }
+	static get ImagePadding(){ return Format.FontSize/7 }
+
+	static DefaultProperties()
 	{
 		return {
-			 textAlign: `left`
+			 textAlign: 'left'
 			,fillStyle: Format.DiscordText
 			,font: Format.FontSetting
 		}
 	}
 	static MinRatio = 0.5
 	static MaxRatio = 0.95
-	static get BlurbFontSize() { return (Format.FontSize * 0.8) }
-	static BlurbColor = `#ddd` //`#7c7e82`
-	static BorderColor = `#3F4249`
+	static BlurbFontSize() { return (Format.FontSize * 0.8) }
+	static BlurbColor = '#ddd' //'#7c7e82'
+	static BorderColor = '#3F4249'
 	
-	static arImgGenBlurb = 
-	[	
-		`Created by the r/StarCitizen Discord News Team`
-	,	`Assisted by ShinyHobo @ https://shinytracker.app/`
-	,	`md2png converter maintained by jtoxification`
-	,	`not affiliated with Cloud Imperium Games`
-	]
-
-	static arKey = 
-	[	`**Key**`
-	,	`:scn1: - Added Deliverable`
-	,	`:scn2: - Removed Deliverable`
-	,	`:scn3: - updated Deliverable`
-	,	`:sc: - Intended for the Persistent universe`
-	,	`:sq: - Intended for Squadron 42`
-	,	`[1 Dev] - Total number of developers assigned to a deliverable`
-	,	`[1 Active Dev] - Number of developers actively working on a deliverable`
-	,	`[1 Active Dev :increase: ] - Number of active developers has increased since last update`
-	,	`[1 Active Dev :decrease: ] - Number of active developers has decreased since last update`
-	,	`[1 Active Dev :nochange: ] - Number of active developers has not changed since last update`
-	]
+	static hasText(id)
+	{
+		if(!id)
+			return false
+		return document.querySelector(`input#input_${id}`)?.checked
+	}
+	static getText(id)
+	{
+		if(Format.hasText(id))
+			return document.querySelector(`div#textarea_${id}`)?.innerText?.split?.(/\n/) ?? new Array() 
+		return new Array()
+	}
+	static getCreditOffset()
+	{
+		return document.querySelector('input#input_Offset').value
+	}
+	static isReport() { return 'R' == document.querySelector('select#select_Mode')?.value }
 }
 class Catalog
 {
@@ -203,21 +249,19 @@ class Catalog
 	values(){return Object.values(this)}
 	entries(){return Object.entries(this)}
 	get length(){return this.keys().length}
-	join(s=`,`){return this.values().join(s)}
+	join(s=','){return this.values().join(s)}
 	[Symbol.iterator] = function*() 
 	{
 		let arValues = this.values()
 		for(let o of arValues)
-		{
 			yield o
-		}
 	}
 }
 class Column
 {
 	static get Count(){return Format.Columns}
 	/* 
-		`arWidths` should *probably* belong to LineData since it needs to be cleared out on each initialization of LineData, but instead 
+		'arWidths' should *probably* belong to LineData since it needs to be cleared out on each initialization of LineData, but instead 
 		it's here statically because I wanted to play with static properties, and it almost makes sense in that regard (except for the above).
 		I'll fix it in a future build, as I'm not even certain static member initialization of non-primitive data works in browsers outside the big three.
 	*/
@@ -282,7 +326,8 @@ class Section
 	}
 	draw()
 	{
-		this.painter.drawLine(this.title, Format.ColumnMargin, this.y)
+		if(this.title?.length)
+			this.painter.drawLine(this.title, Format.ColumnMargin, this.y)
 		for(let c of this.columns)
 			c.draw()
 	}
@@ -295,7 +340,7 @@ class LineData
 	constructor(painter, arText)
 	{
 		/* 
-			`arWidths` should *probably* belong to LineData since it needs to be cleared out on each initialization of LineData, but instead it's a static 
+			'arWidths' should *probably* belong to LineData since it needs to be cleared out on each initialization of LineData, but instead it's a static 
 			property of the Column class because I wanted to play with static properties, and it almost makes sense in that regard (except for the above).
 			I'll fix it in a future build, as I'm not even certain static member initialization of non-primitive data works in browsers outside the big three.
 		*/
@@ -329,11 +374,14 @@ class Painter
 	canvas = null
 	constructor(pArText, pCanvas)
 	{
-		this.arText = pArText.filter(s=>s.trim().length)
+		if(Format.isReport())
+			this.arText = pArText.filter(s=>s.trim().length)
+		else
+		this.arText = [...pArText]
 		this.canvas = pCanvas
-		this.ctx = pCanvas.getContext(`2d`)
+		this.ctx = pCanvas.getContext('2d')
 	}
-	resetFormatting(pStyle = ``, pOverrides)
+	resetFormatting(pStyle = '', pOverrides)
 	{
 		let oDefault = Format.DefaultProperties()
 		for(let key of Object.keys(oDefault))
@@ -343,7 +391,7 @@ class Painter
 		pStyle = pStyle.trim()
 		if(pStyle.length)
 		{
-			this.ctx.font = pStyle + ` ` + this.ctx.font
+			this.ctx.font = pStyle + ' ' + this.ctx.font
 		}
 	}
 	drawBackground(x, y, width, height, color = Format.DiscordBG)
@@ -378,14 +426,14 @@ class Painter
 		let oUnderlineState = { start:0, stop:0, isActive:false }
 		let iPrevText = 1
 		arLine = sLine.toString()
-			.replaceAll(/:(increase|decrease|nochange|sc|sq|scn[1-6]):/gi, `\n:$1:\n`)
-			.replaceAll(/(?<!\\)\*{2}/g, `\n:js_bold:\n`)
-			.replaceAll(/(?<!\\)\*/g, `\n:js_italic:\n`)
-			.replaceAll(/\\\*/g,`*`)
-			.replaceAll(/(?<!\\)\_{2}/g, `\n:js_underline:\n`)
-			.replaceAll(/\\\_/g,`_`)
+			.replaceAll(/:(increase|decrease|nochange|sc|sq|scn[1-6]):/gi, '\n:$1:\n')
+			.replaceAll(/(?<!\\)\*{2}/g, '\n:js_bold:\n')
+			.replaceAll(/(?<!\\)\*/g, '\n:js_italic:\n')
+			.replaceAll(/\\\*/g,'*')
+			.replaceAll(/(?<!\\)\_{2}/g, '\n:js_underline:\n')
+			.replaceAll(/\\\_/g,'_')
 			.split(/\n/)
-		if (arLine[0][0] == `:` && arLine[0].at(-1) == `:`)
+		if (arLine[0][0] == ':' && arLine[0].at(-1) == ':')
 		{
 			iDistance -= Format.ImagePadding
 		}
@@ -396,8 +444,8 @@ class Painter
 			switch(s)
 			{
 				/* Would have been easier with Set, but I was still having fun with Catalog. May redo later. */
-				case `:js_bold:`:
-				case `:js_italic:`:
+				case ':js_bold:':
+				case ':js_italic:':
 				{
 					s = s.substring(4, s.length - 1)
 					/* 	Currently capping the formatting per line as though each line was its own message. 
@@ -413,7 +461,7 @@ class Painter
 					}
 					continue
 				}
-				case `:js_underline:`:
+				case ':js_underline:':
 				{
 					/* If switching to global, just don't reset the draw state at the end of this method */
 					if (bCommit)
@@ -431,17 +479,18 @@ class Painter
 					}
 					continue
 				}
-				case ``: continue
+				case '': continue
+				default: break
 			}
 			// Image replacements
-			if (s[0] == `:` && s.at(-1) == `:`)
+			if (s[0] == ':' && s.at(-1) == ':')
 			{
 				iDistance += Format.ImagePadding * iPrevText
-				s = s.replace(/:/gi, ``).toUpperCase()
+				s = s.replace(/:/gi, '').toUpperCase()
 				let img = document.querySelector(`img#${s}`)
 				if(img)
 				{
-					let imgWidth = Format.FontSize * new Number(img.getAttribute(`ratio`))
+					let imgWidth = Format.FontSize * new Number(img.getAttribute('ratio'))
 					if(bCommit)
 					{
 						this.ctx.imageSmoothingQuality = "high"
@@ -456,7 +505,7 @@ class Painter
 					continue
 				}
 			}
-			this.resetFormatting(catFormat.keys().join(` `), pOverrides)
+			this.resetFormatting(catFormat.keys().join(' '), pOverrides)
 			let txtMetrics = this.ctx.measureText(s)
 			if(bCommit)
 			{
@@ -473,9 +522,27 @@ class Painter
 		}
 		return iDistance - x + 1
 	}
-	draw()
+	drawMsg()
+	{
+		let painter = new Painter(this.arText, canvas)
+		let iDblMargin = Format.ColumnMargin << 1
+
+		let iWidth =  this.measureEOL(this.arText.reduce((a,b)=>a.length>b.length?a:b,''), Format.ColumnMargin) 
+		let iHeight = this.arText.length * Format.LineHeight
+
+		this.canvas.width = iWidth + iDblMargin
+		this.canvas.height = iHeight + iDblMargin
+
+		this.drawBackground(0, 0, this.canvas.width, this.canvas.height)
+		for (let i = 0;i < this.arText.length; i++)
+			this.drawLine(this.arText[i], Format.ColumnMargin, (i + 1) * Format.LineHeight, true)
+	}
+	drawReport()
 	{
 		// Threw the newer legend & credit blurb together in a hurry. Will come back later to clean it all up.
+		let arCredit = Format.getText('Credit')
+		let arLegend = Format.getText('Legend')
+		
 		let lineData = new LineData(this, this.arText)
 		let iColumns = Format.Columns
 
@@ -483,54 +550,101 @@ class Painter
 		let oBlurbOverride = 
 		{
 			  fillStyle:Format.BlurbColor
-			, font:Format.GetFontString(Format.BlurbFontSize)
+			, font:Format.GetFontString(Format.BlurbFontSize())
 		}
 		let ptBlurb = {x:0,y:0}
 		let iBorderMargin = Format.ColumnMargin * 3
-		let iMaxBlurbWidth = 0.75 * this.measureEOL(Format.arImgGenBlurb.reduce((a,b)=>a.length>b.length?a:b,''), iBorderMargin, oBlurbOverride) 
+
+		let iActualBlurbWidth = this.measureEOL(arCredit.reduce((a,b)=>a.length>b.length?a:b,''), iBorderMargin, oBlurbOverride) 
+		let iBlurbOffset = 0.01 * Format.getCreditOffset() * iActualBlurbWidth
+
+		let iMaxLegendWidth = Math.max(this.measureEOL(arLegend.reduce((a,b)=>a.length>b.length?a:b,''), iBorderMargin), lineData.w)
+
+		let iCreditHeight = Format.ColumnMargin + Math.max(0, arCredit.length - 1) * (Format.ColumnMargin + Format.BlurbFontSize())
+		let iLegendHeight = arLegend.length * Format.LineHeight
 		
-		// Create metrics for our legend & canvas
-		// I know this is super kludgy. I'll be rewriting it in a bit.
 		let iMaxWidth = Column.arWidths[0]
 		let iCanvasWidth = lineData.w
-		Format.Columns = 1
-		let keySection = new Section(lineData.painter, Format.arKey, Format.arKey[0], 1, Format.arKey.length, lineData.h + Format.LineHeight * 3)
-		let iSectionWidth = Column.arWidths[0]
-		Format.Columns = iColumns
-		this.canvas.width = Math.max(iSectionWidth + iMaxBlurbWidth, iCanvasWidth)
-		Column.arWidths[0] = iMaxWidth
-		this.canvas.height = keySection.y + keySection.h + Format.ColumnMargin
+		let iCanvasHeight = lineData.h + Format.ColumnMargin
 
+		// Create metrics for our legend & credit & canvas
+		// I know this is super kludgy. I'll be rewriting it in a bit.
+		let keySection = {h:lineData.h, y:lineData.h + Format.LineHeight * 1.25}
+
+		if(Format.hasText('Credit'))
+		{
+			iCanvasHeight = keySection.y + iCreditHeight
+			iCanvasWidth = Math.max(iBlurbOffset,0) + Math.max(iCanvasWidth, iMaxLegendWidth, iActualBlurbWidth)
+		}
+
+		let iSectionWidth = Column.arWidths[0]
+		let iStartingCreditOffset = iCanvasWidth - Format.ColumnMargin
+		
+		if (Format.hasText('Legend'))
+		{
+			// This alters the output of Column.arWidths[]. Too many side effects, I know. I'll redo it later.
+			Format.Columns = 1
+			keySection = new Section(lineData.painter, arLegend, arLegend[0], 1, arLegend.length, lineData.h + Format.LineHeight * 3)
+
+			// Again, backing up the current width based on the number of columns.
+			iSectionWidth = Column.arWidths[0]
+			Format.Columns = iColumns
+			iCanvasWidth = Math.max((iBorderMargin * 3) + iSectionWidth + iBlurbOffset, iCanvasWidth)
+			Column.arWidths[0] = iMaxWidth
+			iCanvasHeight = keySection.y + keySection.h + Format.ColumnMargin
+			iStartingCreditOffset = iCanvasWidth - 1.5 * iBorderMargin
+		}
 		// Create the report
+		this.canvas.width = iCanvasWidth
+		this.canvas.height = iCanvasHeight
 		this.drawBackground(0, 0, this.canvas.width, this.canvas.height)
 		lineData.draw()
 
-		// Create the border
-		let ctx = lineData.painter.ctx
-		ctx.lineJoin = `bevel`
-		ctx.strokeStyle = Format.BorderColor
-		ctx.lineWidth = Math.max(1, Format.FontSize/2)
-		ctx.strokeRect(Format.ColumnMargin * 2, keySection.y - ctx.lineWidth * 3, this.canvas.width - Format.ColumnMargin * 5, keySection.h + Format.ColumnMargin * 2.5)
-
-		// Draw the legend. Messing heavily with defaults atm because I need to go back and bake proper parameterization into these methods.
-		Format.ColumnMargin *= 4
-		let oldColor = Format.DiscordText
-		Format.DiscordText = Format.DiscordTextDarker
-		keySection.draw()
-		Format.ColumnMargin /= 4
-		Format.DiscordText = oldColor
-
-		for (let i = 0;i < Format.arImgGenBlurb.length; i++)
+		if(Format.hasText('Legend'))
 		{
-			ptBlurb.x = this.canvas.width - 1.5 * iBorderMargin - this.measureEOL(Format.arImgGenBlurb[i], iBorderMargin, oBlurbOverride)
-			ptBlurb.y = keySection.y + i * (Format.ColumnMargin + Format.BlurbFontSize)
-			this.drawLine(Format.arImgGenBlurb[i], ptBlurb.x, ptBlurb.y, true, oBlurbOverride)
+			// Create the border
+			let ctx = lineData.painter.ctx
+			ctx.lineJoin = 'bevel'
+			ctx.strokeStyle = Format.BorderColor
+			ctx.lineWidth = Math.max(1, Format.FontSize/2)
+			ctx.strokeRect(Format.ColumnMargin * 2, keySection.y - ctx.lineWidth * 3, this.canvas.width - Format.ColumnMargin * 5, keySection.h + Format.ColumnMargin * 2.5)
+		
+			// Draw the legend. Messing heavily with defaults atm because I need to go back and bake proper parameterization into these methods.
+			Format.ColumnMargin *= 4
+			let oldColor = Format.DiscordText
+			Format.DiscordText = Format.DiscordTextDarker
+			keySection.draw()
+			Format.ColumnMargin /= 4
+			Format.DiscordText = oldColor
+		}
+		if(!Format.hasText('Credit'))
+			return
+		for (let i = 0;i < arCredit.length; i++)
+		{
+			ptBlurb.x = iStartingCreditOffset - this.measureEOL(arCredit[i], iBorderMargin, oBlurbOverride)
+			ptBlurb.y = keySection.y + i * (Format.ColumnMargin + Format.BlurbFontSize())
+			this.drawLine(arCredit[i], ptBlurb.x, ptBlurb.y, true, oBlurbOverride)
 		}
 	}
+	draw()
+	{
+		Format.isReport()
+			?this.drawReport()
+			:this.drawMsg()
+	}
 }
+
+function ToggleDisplay(object)
+{
+	object?.classList?.toggle?.('toggle')
+}
+
 function ToggleExpansion(event)
 {
-	event.target.classList.toggle('expanded')
+	if (canvas.hasAttribute('loaded'))
+		event.target.classList.toggle('expanded')
+	else
+		event.target.classList.remove('expanded')
 }
 function DragDrop(event)
 {
@@ -541,17 +655,17 @@ function LoadText()
 	// Stop us from navigating away
 	event.stopPropagation()
 	event.preventDefault()
-	const content = document.querySelector(`#textarea`)
+	const content = document.querySelector('#textarea')
 	if (!content.innerText.trim().length)
 		content.innerText = "**Disclaimer**\nThe converter currently only supports heading mode.\nAs such, it expects at least two lines, or any title on its own line surrounded by\n\\*\\*double asterisks\\*\\* to be followed by at least one line of additional text.\nThis limitation will eventually be removed.";
 	let ar = content.innerText.split(/\n/)
-	
+
 	// Using single quotes here because NotePad++'s default grammar parser had a fit with all the newstyle quotes I was using.
-	document.querySelector(`#CreditBlurbHeader`).innerHTML = '<b>Message Stub</b> (Left-click the image to expand/contract, right-click to save)<hr>'
+	document.querySelector('#CreditBlurbHeader').innerHTML = '<b>Message Stub</b> (Left-click the image to expand/contract, right-click to save)<hr>'
 
 	// Updating the auto-rip of the header in preparation for moving to more generic use cases -> will add checkboxes for the column count, & for including the legend & blurb.
-	let pBlurb = document.querySelector(`#CreditBlurbForMsgBody`)
-	if (-1 < ar[0].search(/\*\*Progress Tracker Update/gi))
+	let pBlurb = document.querySelector('#CreditBlurbForMsgBody')
+	if (Format.isReport() && -1 < ar[0].search(/\*\*Progress Tracker Update/gi))
 	{
 		pBlurb.innerText = ar.shift() + '\n'
 
@@ -564,34 +678,35 @@ function LoadText()
 	}
 	try
 	{
-		const canvas = document.querySelector(`#canvas`)
+		const canvas = document.querySelector('#canvas')
 		const context = canvas.getContext('2d');
 		context.clearRect(0, 0, canvas.width, canvas.height);
 
 		let painter = new Painter(ar, canvas)
 		painter.draw()
-		canvas.style.border = `2px lightgrey`
-		//document.querySelector(`#aCanvas`).href = canvas.toDataURL("image/png")
+		canvas.style.border = '2px lightgrey'
+		canvas.setAttribute('loaded','true')
 	}
 	catch(e)
 	{
-		console.log(`Error occurred within try-catch block:`, e)
-		document.querySelector(`#CreditBlurbHeader`).innerHTML = "<b>Disclaimer</b><br>The converter currently only supports heading mode.<br>As such, it expects at least two lines, or any title on its own line surrounded by <br> **double asterisks** to be followed by at least one line of additional text.<br>This limitation will eventually be removed.";
+		canvas.removeAttribute('loaded')
+		console.log('Error occurred within try-catch block:', e)
+		document.querySelector('#CreditBlurbHeader').innerHTML = "<b>Disclaimer</b><br>The converter currently only supports heading mode.<br>As such, it expects at least two lines, or any title on its own line surrounded by <br> **double asterisks** to be followed by at least one line of additional text.<br>This limitation will eventually be removed.";
 	}
-	document.querySelector(`button#button_Reload`).style.display = ``
+	document.querySelector('#button_Reload').style.display = ''
 }
 function LoadFile(file) 
 {
 	event.stopPropagation()
 	event.preventDefault()
-	const content = document.querySelector(`#textarea`)
-	file = file ?? document.querySelector(`#input_SourceFile`)?.files?.[0]
+	const content = document.querySelector('#textarea')
+	file = file ?? document.querySelector('#input_SourceFile')?.files?.[0]
 	if(!file)
 	{
 		return
 	}
 	const reader = new FileReader()
-	reader.addEventListener(`load`, ()=>
+	reader.addEventListener('load', ()=>
 	{
 		content.innerText = reader.result
 		LoadText()
@@ -602,11 +717,11 @@ function SaveAs(data)
 {
 	event.stopPropagation()
 	event.preventDefault()
-	let blob = new Blob([data],{type:`text/markdown`})
-	let a = document.querySelector(`a#SaveAs`)
+	let blob = new Blob([data],{type:'text/markdown'})
+	let a = document.querySelector('#SaveAs')
 	let d = new Date()
 	a.href = URL.createObjectURL(blob)
-	a.download = document.querySelector(`input#input_SourceFile`)?.value?.split?.(`\\`)?.at?.(-1)?.trim?.()
+	a.download = document.querySelector('#input_SourceFile')?.value?.split?.('\\')?.at?.(-1)?.trim?.()
 		?? `Progress Tracker-Updated-${d.getFullYear()}-${d.getMonth().padStart(2,'0')}-${d.getDay().padStart(2,'0')}.txt`
 	a.click()
 	setTimeout(()=>{URL.revokeObjectURL(a.href)},0)
@@ -618,45 +733,88 @@ RoundTo = (x, p)=>
 }
 function CheckHeights()
 {
-	let inf = document.querySelector(`input#input_Font`)
-	let inh = document.querySelector(`input#input_LineHeight`)
-	let ins = document.querySelector(`input#input_SourceFile`)
-	let spe = document.querySelector(`span#span_Error`)
-	let spf = document.querySelector(`span#span_Font`)
-	let sph = document.querySelector(`span#span_LineHeight`)
-	spf.innerText = `(${RoundTo(inh.value * Format.MinRatio, 2)}-${RoundTo(inh.value * Format.MaxRatio, 2)})`
-	sph.innerText = `(${RoundTo(inf.value / Format.MaxRatio, 2)}-${RoundTo(inf.value / Format.MinRatio, 2)})`
+	let inf = document.querySelector('#input_Font')
+	let inh = document.querySelector('#input_LineHeight')
+	let ins = document.querySelector('#input_SourceFile')
+	let spe = document.querySelector('#span_Error')
+	let spf = document.querySelector('#span_Font')
+	let sph = document.querySelector('#span_LineHeight')
+	
+	let abf = document.querySelector('#abbr_Font')
+	let abh = document.querySelector('#abbr_Height')
+	//spf.innerText = `(${RoundTo(inh.value * Format.MinRatio, 2)}-${RoundTo(inh.value * Format.MaxRatio, 2)})`
+	abf.title = `(${RoundTo(inh.value * Format.MinRatio, 2)}-${RoundTo(inh.value * Format.MaxRatio, 2)})`
+	
+	//sph.innerText = `(${RoundTo(inf.value / Format.MaxRatio, 2)}-${RoundTo(inf.value / Format.MinRatio, 2)})`
+	abh.title = `(${RoundTo(inf.value / Format.MaxRatio, 2)}-${RoundTo(inf.value / Format.MinRatio, 2)})`
+	
 	Format.FontSize = new Number(inf.value)
 	Format.LineHeight = new Number(inh.value)
 	let ratio = Format.FontSize / Format.LineHeight
 	ins.disabled = isNaN(ratio) || ratio < Format.MinRatio || ratio > Format.MaxRatio
 	spe.innerText = ins.disabled?
-		`Font size must be within 50%-95% of the specified line height`
-		:``
+		'Font size must be within 50%-95% of the specified line height'
+		:''
 }
 function AttachEventListeners()
 {
-	let divText = document.querySelector(`#textarea`)
-	let sef = document.querySelector(`select#select_Font`)
-	let ins = document.querySelector(`input#input_SourceFile`)
+	let divText = document.querySelector('#textarea')
+	let sef = document.querySelector('#select_Font')
+	let ins = document.querySelector('#input_SourceFile')
 	
-	// Allow single-click on Canvas to open in new window.
-	document.querySelector('#canvas').addEventListener(`click`, ToggleExpansion)
+	// Allow single-click on canvas to expand/collapse image size.
+	document.querySelector('#canvas').addEventListener('click', ToggleExpansion)
 	
 	// Attach text/file loading/saving
-	document.querySelector(`button#button_Reload`).addEventListener(`click`, ()=>LoadFile())
-	document.querySelector(`button#button_LoadText`).addEventListener(`click`, ()=>LoadText())
-	document.querySelector(`button#button_Save`).addEventListener(`click`, ()=>SaveAs(divText?.innerText))
-	ins.addEventListener(`change`, ()=>LoadFile())
-	ins.addEventListener(`drop`, DragDrop)
+	document.querySelector('#button_Reload').addEventListener('click', ()=>LoadFile())
+	document.querySelector('#button_LoadText').addEventListener('click', ()=>LoadText())
+	document.querySelector('#button_Save').addEventListener('click', ()=>SaveAs(divText?.innerText))
+	ins.addEventListener('change', ()=>LoadFile())
+	ins.addEventListener('drop', DragDrop)
 
 	// Check Height and Font Size
-	document.querySelector(`input#input_Font`).addEventListener(`change`, CheckHeights)
-	document.querySelector(`input#input_LineHeight`).addEventListener(`change`, CheckHeights)
-	sef.addEventListener(`change`, ()=>Format.Font=sef.value)
+	document.querySelector('#input_Font').addEventListener('change', CheckHeights)
+	document.querySelector('#input_LineHeight').addEventListener('change', CheckHeights)
+	sef.addEventListener('change', ()=>Format.Font=sef.value)
 
-	//Run initial height check
+	//Credit & Legend
+	let inCr = document.querySelector('#input_Credit')
+	let inLg = document.querySelector('#input_Legend')
+	let dvCr = document.querySelector('#textarea_Credit')
+	let dvLg = document.querySelector('#textarea_Legend')
+	let dvNote = document.querySelector('#div_Footnote')
+	let seMode = document.querySelector('#select_Mode')
+	let spOff = document.querySelector('#span_Offset')
+	let inCol = document.querySelector('#input_Columns')
+	let dvCols = document.querySelector('#div_Columns')
+
+
+	let fnSetColumnCount = (event)=>{ Format.Columns = event.target.value }
+	let fnToggleFootnote = ()=>
+	{
+		if(Format.isReport())
+		{
+			dvNote.classList.remove('toggle')
+			dvCols.classList.remove('toggle')
+		}
+		else
+		{
+			dvNote.classList.add('toggle')
+			dvCols.classList.add('toggle')
+		}
+	}
+	inCol.addEventListener('change',fnSetColumnCount)
+	seMode.addEventListener('change', fnToggleFootnote)
+	inCr.addEventListener('click', ()=>{dvCr.classList.toggle('toggle');spOff.classList.toggle('toggle')})
+	inLg.addEventListener('click', ()=>dvLg.classList.toggle('toggle'))
+	
+	//Run initial checks because form data is saved on refresh
+	fnSetColumnCount({target:inCol})
+	fnToggleFootnote()
 	CheckHeights()
+	dvCr.classList[inCr.checked?'remove':'add']('toggle')
+	spOff.classList[inCr.checked?'remove':'add']('toggle')
+	dvLg.classList[inLg.checked?'remove':'add']('toggle')
 }
 </script>
 </head>
@@ -682,83 +840,120 @@ function AttachEventListeners()
 			<a href="https://old.reddit.com/r/starcitizen/">r/StarCitizen</a> - Made by the Community 🖖🏳️‍🌈🏳️‍⚧️
 		</p>
 		<form class="Spacer-Left">
-			<label class="Spacer-Left Spacer-Top" for="select_Font" style="font-size:16pt;">Select a Font Family: </label>
-			<select class="Spacer" id="select_Font" value="Arial" style="font-size:12pt;">
+			<label class="Spacer-Left Spacer-Top" for="select_Font" style="font-size:16pt;">Select a Font Family </label>
+			<select class="Spacer-Top" id="select_Font" value="Arial" style="font-size:12pt;position:relative;left:var(--input-font);">
 				<!-- 
 					Font list taken from stack overflow question https://stackoverflow.com/questions/3368837/list-every-font-a-users-browser-can-display 
 					Answered by this user: https://stackoverflow.com/users/820841/chris
 				!-->
-				<option value='Arial'>Arial</option>
-				<option value='Arial Black'>Arial Black</option>
-				<option value='Bahnschrift'>Bahnschrift</option>
-				<option value='Calibri'>Calibri</option>
-				<option value='Cambria'>Cambria</option>
-				<option value='Cambria Math'>Cambria Math</option>
-				<option value='Candara'>Candara</option>
-				<option value='Comic Sans MS'>Comic Sans MS</option>
-				<option value='Consolas'>Consolas</option>
-				<option value='Constantia'>Constantia</option>
-				<option value='Corbel'>Corbel</option>
-				<option value='Courier New'>Courier New</option>
-				<option value='Ebrima'>Ebrima</option>
-				<option value='Franklin Gothic Medium'>Franklin Gothic Medium</option>
-				<option value='Gabriola'>Gabriola</option>
-				<option value='Gadugi'>Gadugi</option>
-				<option value='Georgia'>Georgia</option>
-				<option value='HoloLens MDL2 Assets'>HoloLens MDL2 Assets</option>
-				<option value='Impact'>Impact</option>
-				<option value='Ink Free'>Ink Free</option>
-				<option value='Javanese Text'>Javanese Text</option>
-				<option value='Leelawadee UI'>Leelawadee UI</option>
-				<option value='Lucida Console'>Lucida Console</option>
-				<option value='Lucida Sans Unicode'>Lucida Sans Unicode</option>
-				<option value='Malgun Gothic'>Malgun Gothic</option>
-				<option value='Marlett'>Marlett</option>
-				<option value='Microsoft Himalaya'>Microsoft Himalaya</option>
-				<option value='Microsoft JhengHei'>Microsoft JhengHei</option>
-				<option value='Microsoft New Tai Lue'>Microsoft New Tai Lue</option>
-				<option value='Microsoft PhagsPa'>Microsoft PhagsPa</option>
-				<option value='Microsoft Sans Serif'>Microsoft Sans Serif</option>
-				<option value='Microsoft Tai Le'>Microsoft Tai Le</option>
-				<option value='Microsoft YaHei'>Microsoft YaHei</option>
-				<option value='Microsoft Yi Baiti'>Microsoft Yi Baiti</option>
-				<option value='MingLiU-ExtB'>MingLiU-ExtB</option>
-				<option value='Mongolian Baiti'>Mongolian Baiti</option>
-				<option value='MS Gothic'>MS Gothic</option>
-				<option value='MV Boli'>MV Boli</option>
-				<option value='Myanmar Text'>Myanmar Text</option>
-				<option value='Nirmala UI'>Nirmala UI</option>
-				<option value='Palatino Linotype'>Palatino Linotype</option>
-				<option value='Segoe MDL2 Assets'>Segoe MDL2 Assets</option>
-				<option value='Segoe Print'>Segoe Print</option>
-				<option value='Segoe Script'>Segoe Script</option>
-				<option value='Segoe UI'>Segoe UI</option>
-				<option value='Segoe UI Historic'>Segoe UI Historic</option>
-				<option value='Segoe UI Emoji'>Segoe UI Emoji</option>
-				<option value='Segoe UI Symbol'>Segoe UI Symbol</option>
-				<option value='SimSun'>SimSun</option>
-				<option value='Sitka'>Sitka</option>
-				<option value='Sylfaen'>Sylfaen</option>
-				<option value='Symbol'>Symbol</option>
-				<option value='Tahoma'>Tahoma</option>
-				<option value='Times New Roman'>Times New Roman</option>
-				<option value='Trebuchet MS'>Trebuchet MS</option>
-				<option value='Verdana'>Verdana</option>
-				<option value='Webdings'>Webdings</option>
-				<option value='Wingdings'>Wingdings</option>
+				<option value='Arial'>Arial</option><option value='Arial Black'>Arial Black</option>
+				<option value='Bahnschrift'>Bahnschrift</option><option value='Calibri'>Calibri</option>
+				<option value='Cambria'>Cambria</option><option value='Cambria Math'>Cambria Math</option>
+				<option value='Candara'>Candara</option><option value='Comic Sans MS'>Comic Sans MS</option>
+				<option value='Consolas'>Consolas</option><option value='Constantia'>Constantia</option>
+				<option value='Corbel'>Corbel</option><option value='Courier New'>Courier New</option>
+				<option value='Ebrima'>Ebrima</option><option value='Franklin Gothic Medium'>Franklin Gothic Medium</option>
+				<option value='Gabriola'>Gabriola</option><option value='Gadugi'>Gadugi</option>
+				<option value='Georgia'>Georgia</option><option value='HoloLens MDL2 Assets'>HoloLens MDL2 Assets</option>
+				<option value='Impact'>Impact</option><option value='Ink Free'>Ink Free</option>
+				<option value='Javanese Text'>Javanese Text</option><option value='Leelawadee UI'>Leelawadee UI</option>
+				<option value='Lucida Console'>Lucida Console</option><option value='Lucida Sans Unicode'>Lucida Sans Unicode</option>
+				<option value='Malgun Gothic'>Malgun Gothic</option><option value='Marlett'>Marlett</option>
+				<option value='Microsoft Himalaya'>Microsoft Himalaya</option><option value='Microsoft JhengHei'>Microsoft JhengHei</option>
+				<option value='Microsoft New Tai Lue'>Microsoft New Tai Lue</option><option value='Microsoft PhagsPa'>Microsoft PhagsPa</option>
+				<option value='Microsoft Sans Serif'>Microsoft Sans Serif</option><option value='Microsoft Tai Le'>Microsoft Tai Le</option>
+				<option value='Microsoft YaHei'>Microsoft YaHei</option><option value='Microsoft Yi Baiti'>Microsoft Yi Baiti</option>
+				<option value='MingLiU-ExtB'>MingLiU-ExtB</option><option value='Mongolian Baiti'>Mongolian Baiti</option>
+				<option value='MS Gothic'>MS Gothic</option><option value='MV Boli'>MV Boli</option>
+				<option value='Myanmar Text'>Myanmar Text</option><option value='Nirmala UI'>Nirmala UI</option>
+				<option value='Palatino Linotype'>Palatino Linotype</option><option value='Segoe MDL2 Assets'>Segoe MDL2 Assets</option>
+				<option value='Segoe Print'>Segoe Print</option><option value='Segoe Script'>Segoe Script</option>
+				<option value='Segoe UI'>Segoe UI</option><option value='Segoe UI Historic'>Segoe UI Historic</option>
+				<option value='Segoe UI Emoji'>Segoe UI Emoji</option><option value='Segoe UI Symbol'>Segoe UI Symbol</option>
+				<option value='SimSun'>SimSun</option><option value='Sitka'>Sitka</option>
+				<option value='Sylfaen'>Sylfaen</option><option value='Symbol'>Symbol</option>
+				<option value='Tahoma'>Tahoma</option><option value='Times New Roman'>Times New Roman</option>
+				<option value='Trebuchet MS'>Trebuchet MS</option><option value='Verdana'>Verdana</option>
+				<option value='Webdings'>Webdings</option><option value='Wingdings'>Wingdings</option>
 				<option value='Yu Gothic'>Yu Gothic</option>
 			</select>
-			<br/>
-			<label for="input_Font" class="Spacer-Left" style="font-size:16pt;">Font Size (in pixels, default 17): </label>
-			<input id="input_Font" class="Spacer" type="number" min="11" max="50" value="24" style="width:3em">
-			<span id="span_Font"></span>
-			<br/>
-			<label for="input_LineHeight" class="Spacer-Left" style="font-size:16pt;">Line Height (pixels, default 25): </label>
-			<input id="input_LineHeight" class="Spacer" type="number" min="15" max="100" value="32" style="width:3em">
-			<span id="span_LineHeight"></span>
+			<br/><br/>
+			<label for="input_Font" class="Spacer-Left" style="font-size:16pt;">Font Height (default 24) </label><!-- old default 17 -->
+			<span style="position:relative;left:var(--input-font-height);">
+				<abbr id="abbr_Font">
+					<input id="input_Font" type="number" min="11" max="50" value="24">
+					<span> px</span>
+					<!--span id="span_Font"></span-->
+				</abbr>
+			</span>
+			<br/><br/>
+			<label for="input_LineHeight" class="Spacer-Left" style="font-size:16pt;">Line Height (default 32) </label><!-- old default 25 -->
+			<span style="position:relative;left:var(--input-line-height);">
+				<abbr id="abbr_Height">
+					<input id="input_LineHeight" type="number" min="15" max="100" value="32"><span> px</span>
+					<!--span id="span_LineHeight"></span-->
+				</abbr>
+			</span>
 			<br/>
 			<span id="span_Error" class="Spacer-Left Error"></span>
 			<br/>
+			<label for="select_Mode" class="Spacer-Left" style="font-size:16pt;">Message Mode</label>
+			<select id="select_Mode" value="R" style="font-size:12pt;position:relative;left:var(--input-mode)">
+				<option value="R">Report</option>
+				<option value="M">Message</option>
+			</select>
+			<br/><br/>
+			<div id="div_Columns">
+				<label for="input_Columns" style="font-size:16pt;" class="Spacer-Left">Max Columns</label>
+				<span style="position:relative;left:var(--input-columns);"><input id="input_Columns" style="position:relative;top:-0.15em;" type="number" min="1" max="100" step="1" value="2"></span>
+			</div>
+			<br/>
+			<div id="div_Footnote">
+			<input id="input_Credit" type="checkbox" checked="checked">
+			<label for="input_Credit" style="font-size:16pt;vertical-align:super;" class="Spacer-Top Spacer-Right">Credit</label>
+			<!--
+			<span id="span_Offset">
+			<label for="input_Offset" class="Spacer-Left" style="font-size:16pt;vertical-align:super;"> Right Offset</label>
+			<span style="position:relative;left:calc(var(--input-preset) - 1em);">
+				<input id="input_Offset" style="vertical-align:super;position:relative;top:-0.15em;" type="number" min="15" max="200" step="5" value="30">
+				<span style="vertical-align:super"> %</span>
+			</span>
+			</span>
+			-->
+			<!--
+			<div style="display:inline-block;width:37.5em;text-align:right;">
+			<span id="span_Offset">
+			<label for="input_Offset" style="font-size:16pt;vertical-align:super;" class="Spacer-Left">Right Offset</label>
+			<input id="input_Offset" class="Spacer-Left" style="vertical-align:super;position:relative;top:-0.15em;" type="number" min="15" max="200" step="5" value="30">
+			<span style="vertical-align:super"> %</span>
+			</span>
+			</div>
+			-->
+			<div style="display:inline-block;width:var(--input-offset);text-align:right;">
+			<span id="span_Offset">
+			<label for="input_Offset" style="font-size:16pt;vertical-align:super;" class="Spacer-Left">Right Offset</label>
+			<input id="input_Offset" class="Spacer-Left" style="vertical-align:super;position:relative;top:-0.15em;" type="number" min="-100" max="100" step="10" value="0">
+			<span style="vertical-align:super"> %</span>
+			</span>
+			</div>
+			<div id="textarea_Credit" class="Spacer-Left DiscordTextDarker DiscordDarker Editable-Small" contenteditable="true">Created by the r/StarCitizen Discord News Team
+Assisted by ShinyHobo @ https://shinytracker.app/
+md2png converter maintained by jtoxification
+not affiliated with Cloud Imperium Games</div><br/>
+			<input id="input_Legend" class="Spacer-Left Spacer-Top" type="checkbox" checked="checked">
+			<label for="input_Legend" style="font-size:16pt;vertical-align:super;">Legend</label><br/>
+			<div id="textarea_Legend" class="Spacer-Left DiscordTextDarker DiscordDarker Editable-Small" contenteditable="true">**Key**
+:scn1: - Added Deliverable
+:scn2: - Removed Deliverable
+:scn3: - updated Deliverable
+:sc: - Intended for the Persistent Universe
+:sq: - Intended for Squadron 42
+[1 Dev] - Total number of developers assigned to a deliverable
+[1 Active Dev] - Number of developers actively working on a deliverable
+[1 Active Dev :increase: ] - Number of active developers has increased since last update
+[1 Active Dev :decrease: ] - Number of active developers has decreased since last update
+[1 Active Dev :nochange: ] - Number of active developers has not changed since last update</div>
+			</div>
 			<br/>
 			<span class="Spacer-Left" style="font-size:16pt;">Select a file:</span>
 			<input
@@ -770,10 +965,12 @@ function AttachEventListeners()
 				autofocus="autofocus"
 				accept=".txt,.log"
 			>
+			<span style="position:relative;left:1.9em;">
 			<button id="button_LoadText" class="Spacer-Left">Use Input Box</button>
 			<button id="button_Reload" class="Spacer-Left">Reload File</button>
+			</span>
 			<div id="textarea" class="Spacer DiscordTextDarker DiscordDarker Editable" contenteditable="true"></div>
-			<div style="width:100%;text-align:right;"><button id="button_Save" class="Spacer" style="display:inline-block;">Save Changes</button></div>
+			<div style="width:100%;text-align:right;"><button id="button_Save" class="Spacer" style="position:relative;right:0.7em">Save Changes</button></div>
 		</form>
 	</div>
 	<div id="Message">
