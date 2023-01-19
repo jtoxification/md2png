@@ -70,21 +70,16 @@
 	--DiscordDarker: #2f3136;
 	--DiscordDarkest: #1e2124;
 	--input-preset: 18.25em;
-/*
-	--input-font: calc(1.625em + var(--input-preset));
-	--input-font-height: calc( -0.2em + var(--input-preset));
-	--input-line-height: var(--input-font-height);
-	--input-mode: calc(4.775em + var(--input-preset));
-	--input-columns: calc(5.3em + var(--input-preset));
-	--input-offset: calc(10.75em + var(--input-preset));
-*/	
+
 	--input-font: calc(5.55em + var(--input-preset));
 	--input-font-height: calc( 7.7em + var(--input-preset));
 	--input-line-height: var(--input-font-height);
 	--input-mode: calc(10em + var(--input-preset));
 	--input-columns: calc(13em + var(--input-preset));
 	--input-offset: calc(18.5em + var(--input-preset));
+	--input-source: 19.25em;
 }
+
 *{border-radius:var(--default-border-radius);}
 
 a:visited{color: #7777FF;}
@@ -164,6 +159,12 @@ input[type=number]
 	width:3em;
 }
 
+#input_SourceFile
+{
+	/* Keeps the conrtrol offsets in one place above */
+	width:var(--input-source);
+}
+
 #Message
 {
 	position:absolute;
@@ -196,7 +197,7 @@ class Format
 	static MinRowsPerSection = 3
 	static MinItemsForMultiColumn = 5
 	static DiscordBG = '#36393f'
-	static DiscordText = '#fff'
+	static DiscordText = '#e8e8e8'
 	static DiscordTextDarker = '#ddd'
 	static DiscordDarker = '#2f3136'
 	static DiscordDarkest = '#1e2124'
