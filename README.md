@@ -86,3 +86,5 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.</pre>
 17. 2023-04-17 - Fixed discrepancy in legend.
 
 18. 2023-07-04 - Embedded Ian's new emojis.
+
+19. 2023-07-05 - Completed emoji updates for blind viewers.
