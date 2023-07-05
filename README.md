@@ -84,3 +84,5 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.</pre>
 16. 2023-01-18 - Reduced text brightness, offset input file control.
 
 17. 2023-04-17 - Fixed discrepancy in legend.
+
+18. 2023-07-04 - Embedded Ian's new emojis.
